@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Midi Sound Engine</title>
+		<style type="text/css">
+			canvas {
+				border: 5px solid #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="dfgdg">
+			<p id="sf" style="display: none;"></p>
+			<br>
+			<a id="midiplay" href="#">Play</a>
+			<a id="midistop" href="#">Pause</a>
+			<input type="range" name="" value="0" min="0" max="100000" id="yrtyryry" style="width: 480px;">
+			<br>
+			<label>Display Speed: </label>
+			<input type="range" name="" value="100" min="50" max="1000" id="vcbb" style="width: 180px;">
+			<br>
+			<a id="loadmidifile" href="#">Load Mid</a>
+			<br>
+		</div>
+		<script type="text/javascript" src="midi.js"></script>
+		<script type="text/javascript">
+
+			var mod = function (x, y) {
+				var r = x % y;
+				if (r / y < 0) {
+					r += y;
+				}
+				return r;
+			};
+			
+			function getDuraction(num) {
+				var txt = '';
+				if (Math.floor(num) > 3599) {
+					txt += '' + Math.floor(num / 3600);
+					txt += ':';
+					if (mod(Math.floor(num / 60), 60) > 9) {
+						txt += '' + mod(Math.floor(num / 60), 60);
+					} else {
+						txt += '0' + mod(Math.floor(num / 60), 60);
+					}
+					txt += ':';
+					if (mod(Math.floor(num), 60) > 9) {
+						txt += '' + mod(Math.floor(num), 60);
+					} else {
+						txt += '0' + mod(Math.floor(num), 60);
+					}
+				} else {
+					txt += '' + mod(Math.floor(num / 60), 60);
+					txt += ':';
+					if (mod(Math.floor(num), 60) > 9) {
+						txt += '' + mod(Math.floor(num), 60);
+					} else {
+						txt += '0' + mod(Math.floor(num), 60);
+					}
+				}
+				return txt;
+			}
+
+			var songData = [];
+
+			var dSongs = ["songs1", "songs2", "songs3", "songs4", "songs5"];
+			var MSE = new MidSE.MidiSoundEngine();
+			window.MSE = MSE;
+			var Adfgdgfd = "0101001010100101001010100101001010100101001010100101001010100101001010100101001010100101001010100101001010100101001010100101001010010";
+			var fdcvbcbv = [
+				"#fdc25f",
+				"#a580ad",
+				"#e8e8e7",
+				"#d2c59d",
+				"#cf841e",
+				"#fda9f6",
+				"#fdc25f",
+				"#e8baa4",
+				"#d7c21d",
+				"#d7c21d",
+				"#a77e39",
+				"#1c6db2",
+				"#ff9739",
+				"#895f3f",
+				"#fdf2a0",
+				"#ea161f",
+				"#eeaad6",
+				"#131920",
+				"#b59fc5",
+				"#35a272",
+				"#dcd540"
+			]
+
+			var Bfdg = [
+				"#fff",
+				"#000"
+			]
+
+			var MidiRender = function (m) {
+				this.mse = m;
+				this.step.bind(this);
+				this.canvas = document.createElement("canvas");
+
+				this.displaySpeed = 100;
+				this.noteSize = 6;
+
+				this.scale = 1;
+
+
+				this.canvas.width = 640 * this.scale;
+				this.canvas.height = 360 * this.scale;
+
+				this.gd = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+				this.ctx = this.canvas.getContext("2d");
+
+				this.start();
+			}
+
+			MidiRender.prototype.step = function (m) {
+				
+				this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+				var ghgf = 0;
+
+				var polyphon = 0;
+
+				var jghjghj = ["#111", "#222"]
+
+				for (var i = 0; i < 132; i++) {
+					this.Draw_rectangle((i - 60) * this.noteSize * this.scale, 0, this.noteSize * this.scale, this.canvas.height, jghjghj[ghgf]);
+					this.gd[i] = 0;
+					ghgf += 1;
+					if (ghgf == 2) {
+						ghgf = 0;
+					}
+				}
+
+				if (this.mse.decodeNoteQueue.length > 0) {
+					
+					for (var i = 0; i < this.mse.decodeNoteQueue.length; i++) {
+
+						var f = this.mse.decodeNoteQueue[i];
+						if (f.type == "note") {
+							var FSgf = "";
+							var TINEd = (f.times -  this.mse.getTime());
+							if (TINEd > 0 - f.duraction && TINEd < 0) {
+								FSgf = "#fff";
+								this.gd[Math.round(f.pitch)] = 1;
+								polyphon += 1;
+							} else {
+								FSgf = fdcvbcbv[f.instrument - 1];
+							}
+
+							if (TINEd > 0 - f.duraction) {
+								this.Draw_rectangle((f.pitch - 60) * (this.noteSize * this.scale), (20 * this.scale) + (((TINEd + f.duraction * 0.5) * this.displaySpeed * this.scale) - (this.canvas.height / 2)), (this.noteSize * this.scale), (f.duraction * this.displaySpeed * this.scale), FSgf);
+							}
+							
+						}
+
+						if (10 + (TINEd * this.displaySpeed * this.scale) > this.canvas.height) break;
+
+					}
+
+				}
+
+				for (var i = 0; i < 132; i++) {
+					this.Draw_rectangle((i - 60) * this.noteSize * this.scale, (this.canvas.height * -0.5) + (10 * this.scale), this.noteSize * this.scale, (20 * this.scale), this.gd[i] ? "#999" : Bfdg[Number(Adfgdgfd[i])]);
+					ghgf += 1;
+					if (ghgf == 2) {
+						ghgf = 0;
+					}
+				}
+
+				this.ctx.font = (15 * this.scale) + "px Arial";
+				this.ctx.fillStyle = "#fff";
+				this.ctx.fillText("Time: " + getDuraction(this.mse.getTime()) + " / " + getDuraction(this.mse.duration), (5 * this.scale), (15 * this.scale));
+				this.ctx.fillText("Notes: " + this.mse.noteTracker + " / " + this.mse.decodeNoteQueue.length, (5 * this.scale), (30 * this.scale));
+				this.ctx.fillText("Polyphony: " + polyphon, (5 * this.scale), (45 * this.scale));
+				this.ctx.fillText("FPS: " + Math.round(1 / this.mse.DateTime), (5 * this.scale), (60 * this.scale));
+
+				this.ctx.font = (10 * this.scale) + "px Arial";
+				this.ctx.fillStyle = "#999";
+				this.ctx.fillText("Power by Anim Tred", (5 * this.scale), this.canvas.height - (25 * this.scale));
+
+			}
+
+			MidiRender.prototype.start = function (m) {
+				this.interval = setInterval(this.step.bind(this), 1000 / 60);
+			}
+
+			MidiRender.prototype.Draw_rectangle = function (gdx, gdy, gdw, gdh, color) {
+
+				this.ctx.fillStyle = color;
+				this.ctx.fillRect(((gdx - (gdw / 2)) + (this.canvas.width / 2)),(((gdy * -1) - (gdh / 2)) + (this.canvas.height / 2)), gdw, gdh);
+			
+			}
+
+			var fddf = new MidiRender(MSE);
+
+			var fgdgdfg = document.getElementById("yrtyryry");
+
+			var fgdgdfg2 = document.getElementById('vcbb');
+
+			var loadmidifile = document.getElementById('loadmidifile');
+			var midiplay = document.getElementById('midiplay');
+			var midistop = document.getElementById('midistop');
+			var sf = document.getElementById('sf');
+			document.getElementById("dfgdg").insertBefore(fddf.canvas, sf);
+
+			var gfhgfhgfhfghfh = 0;
+
+			function loadMidiVase(essf) {
+				sf.innerHTML = "Loading Midi";
+				MSE.loadMidi(songData[essf]);
+				sf.innerHTML = "Loading SoundBank";
+				MSE.loadSoundbank().then((e) => {
+					sf.innerHTML = "Playing";
+					MSE.play();
+				})
+			}
+
+			fgdgdfg2.addEventListener('change', function() {
+				fddf.displaySpeed = Number(fgdgdfg2.value);
+			}, false);
+
+			fgdgdfg.addEventListener('change', function() {
+				MSE.muteMusicr = true;
+				MSE.MidiTimer = MSE.duration * (fgdgdfg.value / 100000);
+			}, false);
+
+			setInterval(function() {
+				if (!MSE.muteMusicr) fgdgdfg.value = (MSE.getTime() / MSE.duration) * 100000;
+			}, 500)
+
+			function loadMidiFile(file) {
+				var a = new FileReader();
+				sf.innerHTML = "Loading Midi";
+				a.onload = (function() {
+					MSE.loadMid(a.result);
+					sf.innerHTML = "Loading SoundBank";
+					MSE.loadSoundbank().then((e) => {
+						sf.innerHTML = "Playing";
+						MSE.play();
+					})
+				}).bind(this)
+				a.readAsArrayBuffer(file);
+			}
+			midiplay.onclick = function () {
+				MSE.play();
+				sf.innerHTML = "Playing";
+			}
+			midistop.onclick = function () {
+				MSE.pause();
+				sf.innerHTML = "Stopped";
+			}
+			loadmidifile.onclick = function () {
+				var sa = document.createElement('input');
+				sa.type = 'file';
+				sa.accept = '.mid';
+				sa.addEventListener('change', function (e) {
+					var file = e.target.files[0];
+					loadMidiFile(file);
+				}, false);
+				sa.click();
+			}
+		</script>
+	</body>
+</html>

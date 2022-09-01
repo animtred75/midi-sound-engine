@@ -5,7 +5,7 @@ my custom sound engine
 
 https://scratch.mit.edu/projects/718048299/
 
-2022/8/26 Anim Tred 
+2022/9/1 Anim Tred
 */
 
 var MidSE = (function(){
@@ -59,7 +59,7 @@ var MidSE = (function(){
 
 		{ name: "n-7", releasePatch: 65, releaseTime: 0.25, volume: 0.55, duration: 2.14 },
 
-		{ name: "n-8", releasePatch: 60, releaseTime: 0.1, volume: [[36, 0.3], [48, 0.43], [60, 0.35]], duration: [
+		{ name: "n-8", releasePatch: 57, releaseTime: 0.1, volume: [[36, 0.3], [48, 0.43], [60, 0.35]], duration: [
 			[36, 2.27],
 			[48, 3.16],
 			[60, 2.44]
@@ -71,7 +71,7 @@ var MidSE = (function(){
 			[60, 3.01]
 		] },
 
-		{ name: "n-10", releasePatch: 60, volume: [[48, 0.45], [60, 0.3]], duration: 3.01 },
+		{ name: "n-10", releasePatch: 58, volume: [[48, 0.45], [60, 0.3]], duration: 3.01 },
 		{ name: "n-11", releasePatch: 60, volume: 0.3, duration: 3.01 },
 
 		{ name: "n-12", releasePatch: 65, volume: [[60, 0.6], [72, 0.7]], duration: 3.01 },
@@ -203,7 +203,7 @@ var MidSE = (function(){
 		"n-5": "ace30ecd40b0ee7e7d77361e53e1f607.wav",
 		"n-6": "c87bdd77085d5ef9688a4c88b5317947.wav",
 		"n-7": "f527e3719ee8b7b64062e5f9a4b33169.wav",
-		"n-8": "bfb795433499a1cf6f03956794402e32.wav",
+		"n-8": "a9149843a14ed03aa03f061672429829.wav",
 		"n-9": "e4f3d2ba0969b6776f3118256faf3d0f.wav",
 		"n-10": "ff9331e94a2e0db1770fe300152a98ae.wav",
 		"n-11": "eb0008b75519dbbb6fa3c53207ae6bc5.wav",

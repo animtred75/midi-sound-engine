@@ -5,7 +5,7 @@ my custom sound engine
 
 https://scratch.mit.edu/projects/718048299/
 
-2022/9/1 Anim Tred
+2022/9/3 Anim Tred
 */
 
 var MidSE = (function(){
@@ -36,7 +36,7 @@ var MidSE = (function(){
 		{ name: "d-18", volume: 0.8 }
 		
 	]
-
+	
 	var INSTRUMENT = [
 
 		{ name: "n-1", releasePatch: 60, releaseTime: 0.5, volume: 0.6, duration: [
@@ -51,7 +51,7 @@ var MidSE = (function(){
 		] },
 
 		{ name: "n-2", releasePatch: 70, releaseTime: 0.5, volume: 0.8, duration: 3.01 },
-		{ name: "n-3", releasePatch: 62, releaseTime: 0.5, volume: 0.7, duration: 3 },
+		{ name: "n-3", releasePatch: 65, releaseTime: 0.5, volume: 0.7, duration: 3 },
 		{ name: "n-4", releasePatch: 60, releaseTime: 0.5, volume: 0.6, duration: 3 },
 		{ name: "n-5", releasePatch: 60, releaseTime: 0.5, volume: 0.46, duration: 3 },
 
@@ -65,16 +65,16 @@ var MidSE = (function(){
 			[60, 2.44]
 		] },
 
-		{ name: "n-9", releasePatch: 62, volume: 0.5, duration: [
+		{ name: "n-9", releasePatch: 65, volume: [[36, 0.7], [48, 0.6], [60, 0.5]], duration: [
 			[36, 2.97],
 			[48, 3.01],
 			[60, 3.01]
 		] },
 
 		{ name: "n-10", releasePatch: 58, volume: [[48, 0.45], [60, 0.3]], duration: 3.01 },
-		{ name: "n-11", releasePatch: 60, volume: 0.3, duration: 3.01 },
+		{ name: "n-11", releasePatch: 60, volume: 0.4, duration: 3.01 },
 
-		{ name: "n-12", releasePatch: 65, volume: [[60, 0.6], [72, 0.7]], duration: 3.01 },
+		{ name: "n-12", releasePatch: 68, volume: [[60, 0.6], [72, 0.7]], duration: 3.01 },
 		{ name: "n-13", releasePatch: 60, volume: 0.9 },
 		{ name: "n-14", releasePatch: 57, volume: [[36, 0.6], [48, 0.65], [60, 0.3]], duration: 3.01 },
 
@@ -85,7 +85,7 @@ var MidSE = (function(){
 
 		{ name: "n-19", releasePatch: 68, volume: 0.8, duration: 1 },
 
-		{ name: "n-20", releasePatch: 62, releaseTime: 0.1, volume: 0.8, duration: 5 },
+		{ name: "n-20", releasePatch: 63, releaseTime: 0.1, volume: 0.8, duration: 5 },
 		{ name: "n-21", releasePatch: 60, releaseTime: 0.25, volume: 0.45, duration: 3.01 }
 		
 
@@ -179,11 +179,11 @@ var MidSE = (function(){
 
 		"d-1": "f8e9a4862f16d6e0bb58e8595cd5a4ad.wav",
 		"d-2": "ac6720717ecc6d344345090e3e203bc4.wav",
-		"d-3": "55dc0228248315a0279ae2a1694ccec1.wav",
+		"d-3": "b9e66ba61d882cca86735e6beef11381.wav",
 		"d-4": "d2047cb8e805c3d127c469de2fc1d329.wav",
-		"d-5": "9a77e095d5390ed117c3a41fe0706bcc.wav",
+		"d-5": "a1499cbaa1ad01779c6c6f058d4d267a.wav",
 		"d-6": "fed557065a5c346d02780664fcfc915d.wav",
-		"d-7": "2cb5d82670657d62332327cf9d2827a0.wav",
+		"d-7": "2c900dbd0e748ed17adaff318e7b2766.wav",
 		"d-8": "be02fc68efacb15fadf4fe2ff2766741.wav",
 		"d-9": "f8f8f7f3686b47202fc93489ce66c4ec.wav",
 		"d-10": "a51c901191799af0c43dd3a44dcd65c6.wav",
@@ -203,20 +203,20 @@ var MidSE = (function(){
 		"n-5": "ace30ecd40b0ee7e7d77361e53e1f607.wav",
 		"n-6": "c87bdd77085d5ef9688a4c88b5317947.wav",
 		"n-7": "f527e3719ee8b7b64062e5f9a4b33169.wav",
-		"n-8": "a9149843a14ed03aa03f061672429829.wav",
-		"n-9": "e4f3d2ba0969b6776f3118256faf3d0f.wav",
+		"n-8": "054b0e4e9c9a82943e1679ea79abb6d9.wav",
+		"n-9": "0cf114d78ea7cabea0713816ed68cf55.wav",
 		"n-10": "ff9331e94a2e0db1770fe300152a98ae.wav",
 		"n-11": "eb0008b75519dbbb6fa3c53207ae6bc5.wav",
 		"n-12": "f1a832a593567364f0595f80d38aa75e.wav",
 		"n-13": "0e2654aa4377850f6e0323d55e67c023.wav",
 		"n-14": "47b31a30a697235a77f5a79a53c38578.wav",
-		"n-15": "67c38ebf74ec864dbc97102d32260654.wav",
-		"n-16": "39ebb0aeed0cdee0d03b1af0dbe64b55.wav",
-		"n-17": "faf8dd012983c276b964a59fa1706319.wav",
-		"n-18": "fe9e54bbc1d910cc77484abdc637e66e.wav",
+		"n-15": "d3d0e39b50e6769c6cfc8201ffb63e3f.wav",
+		"n-16": "48db10e775081b2d6670a95d82aee2ec.wav",
+		"n-17": "0cda7b25644763d13a6e35ae737f49d8.wav",
+		"n-18": "0abb838fc7baf866ec637c79c6ae6d21.wav",
 		"n-19": "aa0531b278664dfdf9254f2f5676d0e4.wav",
 		"n-20": "5e604969b817c91ab9ef5c9e831b6d3f.wav",
-		"n-21": "6625de240b4befbd0970ba5c11da8d4a.wav",
+		"n-21": "4839b5b36d939907b865b8bfaadb7e01.wav",
 
 	}
 

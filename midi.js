@@ -79,7 +79,7 @@ var MidSE = (function(){
 		{ name: "n-14", releasePatch: 57, volume: [[36, 0.6], [48, 0.65], [60, 0.3]], duration: 3.01 },
 
 		{ name: "n-15", releasePatch: 65, releaseTime: 0.25, volume: 0.56, duration: 3.01 },
-		{ name: "n-16", releasePatch: 65, releaseTime: 0.5, volume: 0.8, duration: 3.01 },
+		{ name: "n-16", releasePatch: 70, releaseTime: 0.5, volume: 0.8, duration: 3.01 },
 		{ name: "n-17", releasePatch: 60, releaseTime: 0.25, volume: 0.5, duration: 3.01 },
 		{ name: "n-18", releasePatch: 60, releaseTime: 0.5, volume: 0.6, duration: 3.01 },
 
